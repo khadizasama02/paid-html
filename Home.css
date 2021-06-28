@@ -1,0 +1,352 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Akaya Kanadaka', cursive;
+}
+.full-body{
+    background: url("./images/photo-a.jpg");
+    background-repeat: none;
+    background-size:cover;
+}
+.navbar{
+    display: flex ;
+    align-items: center;
+    padding: 20px
+
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+    display: inline-block;
+    list-style: none;
+}
+nav ul li {
+     display: inline-block;
+     margin-right: 20px;
+     font-size:20px;
+}
+a {
+    text-decoration: none;
+    color: #555;
+}
+nav ul li a:hover, a.active{
+    background-color: #67e6dc;
+    border-radius: 2px;
+}
+p{
+    color: #555;
+}
+.container{
+    max-width: 1300px;
+    margin:auto;
+}
+ .row{
+   
+    display: flex;
+    /* justify-content: center; */
+    padding: 150px;
+    justify-content: flex-end;
+    color:#485460 ;
+}
+.row h1{
+    text-align: center;
+}
+.col-2{
+    padding:100px;
+}
+.button-class{
+   text-align: center;
+   margin-top:10px;
+    
+}
+.button-style{
+    
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    color: #38424d;
+    background:linear-gradient(#7efff5,#17c0eb,#67e6dc);
+    
+}
+.categories{
+    margin: 70px 0;
+    
+}
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+.col-3 img{
+    width: 100%;
+    height: 350px;
+}
+.row-category{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.submit
+{  
+    text-decoration: none;
+    background-image: linear-gradient(45deg,#7efff5,#17c0eb,#67e6dc);
+    padding:5px;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.col-4{
+    flex-basis: 30%;
+    padding:10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+.col-4 img{
+    width: 100%;
+    height: 400px;
+}
+.submit-class{
+    margin-top:10px;
+}
+.rating img{
+    width: 20px;
+    height: 20px;
+   
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color:#485460;
+}
+.title::after{
+    content: '';
+    background: #58B19F;
+    width: 80px;
+    height:5px;
+    border-radius:5px;
+    position: absolute;
+    bottom:0;
+    left: 46%;
+    transform:translateX(-50);
+
+}
+.title:hover, a.active{
+    background-color:#67e6dc;
+    border-radius: 2px;
+    margin-top:20px;
+}
+.blog-section{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom: 10px;
+}
+.blog-container{
+    position: relative;
+    width:1100px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;;
+
+}
+.blog-container .card{
+    max-width: 300px;
+    height:215px;
+    position: relative;
+    background:#fff;
+    margin: 30px 10px;
+    padding:20px 15px;
+    display:flex;
+    flex-direction:column;
+    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+    
+}
+.blog-container .card:hover{
+    height:420px;
+
+}
+.blog-container .card .img-box{
+    position: relative;
+    width: 260px;
+    top: -60px;
+    left: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.blog-container .card .img-box img{
+    max-width: 100%;
+    border-radius: 4px;
+}
+.blog-container .card .content{
+    position: relative;
+    margin-top:-140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition:0.3s ease-in-out;
+}
+.blog-container .card:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+.blog-container{
+    float: left;
+}
+h4{
+    color:#485460;
+    font-weight: normal;
+}
+.col-4 p{
+    font-size:14px;
+}
+.col-4:hover{
+    transform: translateY(-5px) ;
+}
+.review{
+    padding-top:100px;
+
+}
+.review .col-3{
+    text-align:center;
+    padding: 40px 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.review .col-3 .review-img img{
+    width:70px;
+    height:50px;
+    margin-top: 20px;
+    border-radius:50%;
+}
+.quote img{
+    width:40px;
+    height:40px;
+}
+.review .col-3:hover{
+    transform: translateY(-10px);
+}
+.col-3 p{
+    font-size:12px;
+    margin: 12 0;
+    color: #777;
+}
+review .col-3 h3{
+    font-size:16px ;
+    color:#485460;
+}
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    margin-top:10px;
+    float: right;
+    font-style: italic;
+    background-color: lightgray;
+    border:1px solid lightgray;
+    border-radius:3px;
+  }
+  aside ul{
+      padding:30px;
+  }
+  .article-image img{
+      width:100%;
+  }
+  .article-content{
+      width:60%;
+      display: inline-block;
+  }
+  .article-news h2{
+      padding-bottom:20px;
+  }
+  .footer{
+      background: #000;
+      color: #8a8a8a;
+      font-size:14px;
+      padding:60px 0 20px;
+  }
+  .footer p {
+      color: #8a8a8a;
+
+  }
+  .footer h3{
+     color: #fff;
+     margin-bottom: 20px; 
+  }
+  .footer-col-1,.footer-col-2,.footer-col-3,.footer-col-4{
+      min-width:250px;
+      margin-bottom:20px;
+  }
+  .footer-col-1{
+      flex-basis: 30%;
+  }
+  .footer-col-2{
+      flex:1;
+      text-align: center;
+  }
+  .footer-col-3,.footer-col-4{
+flex-basis: 12%;
+text-align: center;
+  }
+  .footer-ul{
+      list-style-type: none;
+  }
+.footer-copyright{
+    text-align: center;
+}
+.menu{
+    width:28px;
+    margin-left: 20px;
+    display:none;
+}
+/* media query for menu */
+@media only screen and (max-width: 800px){
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background:#333;
+        width:100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin-right: :50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: #fff;
+    }
+    .menu{
+        display: block;
+        cursor: pointer;
+    }
+}
+@media only screen and (max-width: 800px){
+    .row{
+        text-align: center;
+    }
+    .col-2,.col-3,.col-4,.blog-container{
+        flex-basis:100%;
+    }
+}
