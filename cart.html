@@ -5,9 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    
+    <!-- shopping cart -->
+      <div class="small-container cart-page">
+          <table>
+              <tr>
+                  <th>product</th>
+                  <th>quantity</th>
+                  <th>subtotal</th>
+              </tr>
+              <tr>
+                  <td>
+                  <div class="cart-info">
+                    <img src="./images/photo-db.jpg"/>
+                    <div>
+                        <h4>travel hat</h4>
+                        <p>$125</p>
+                        <a href="">remove</a>
+                    </div>
+                  </div>
+                  </td>
+                  <td>
+                      <button id="hat-decrease" onclick="handleProductChange('hat',false)"  >-</button>
+                      <input id="hat-count" type="number" value="0" readonly/>
+                      <button id="hat-increase" onclick="handleProductChange('hat',true)" >+</button>
+                    </td>
+
+                  <td id="hat-total">$000</td>
+
+              </tr>
+              <tr>
+                <td>
+                <div class="cart-info">
+                    <img src="./images/photo-1592jpg.jpg"/>
+                    <div>
+                    <h4>travel bag</h4>
+                    <p>$170</p>
+                      <a href="">remove</a>
+                  </div>
+                </div>
+                </td>
+                <td>
+                    <button  onclick="handleProductChange('bag',false)">-</button>
+                    <input id="bag-count" type="number" value="0" readonly/>
+                    <button  onclick="handleProductChange('bag',true)" >+</button>
+                  </td>
+
+                <td id="bag-total">$000</td>
+
+            </tr>
+            <tr>
+                <td>
+                <div class="cart-info">
+                  <img src="./images/photo-15514.jpg"/>
+                  <div>
+                    <h4>travel mug</h4>
+                    <p>$150</p>
+                      <a href="">remove</a>
+                  </div>
+                </div>
+                </td>
+                <td>
+                    <button onclick="handleProductChange('mug',false)">-</button>
+                    <input id="mug-count" type="number" value="0" readonly/>
+                    <button onclick="handleProductChange('mug',true)">+</button>
+                  </td>
+
+                <td id="mug-total">$000</td>
+
+            </tr>
+          </table>
+          <div class="total-price">
+          <table>
+          <tr>
+            <td>subtotal</td>
+            <td id="sub-total">$00</td>
+
+          </tr>
+          <tr>
+            <td>tax(8%)</td>
+            <td id="tax-total">$00</td>
+
+          </tr>
+          <tr>
+            <td>Grand total</td>
+            <td id="grand-total">$00</td>
+
+          </tr>
+          <tr>
+            <td><button>Checkout</button></td>
+            
+
+          </tr>
+          </table>
+          </div>
+      </div> 
+      <script>
+
+function handleProductChange(product, isIncrease){
+          const productInput = document.getElementById(product+'-count');
+          const productCount = parseInt(productInput.value);
+          let productNewCount = productCount;
+          if(isIncrease == true){
+             productNewCount = productCount + 1;
+          }
+          else if(isIncrease == false && productCount>0){
+             productNewCount = productCount - 1;
+          }
+          // const hatNewCount = hatCount - 1;
+          productInput.value = productNewCount;
+          // const hatTotal = hatNewCount*125;
+          let productTotal = 0;
+          if(product == 'hat'){
+            productTotal = productNewCount*125;
+          }
+          else if(product == 'bag'){
+            productTotal = productNewCount*170;
+          }
+          else if(product == 'mug'){
+            productTotal = productNewCount*150;
+          }
+
+
+          document.getElementById(product+'-total').innerText = '$'+productTotal;
+          calculateTotal();
+        }
+
+function calculateTotal() {
+  const hatInput=document.getElementById('hat-count');
+  const hatCount = parseInt(hatInput.value);
+  const bagInput=document.getElementById('bag-count');
+  const bagCount = parseInt(bagInput.value);
+  const mugInput=document.getElementById('mug-count');
+  const mugCount = parseInt(mugInput.value);
+  const totalPrice = hatCount*125 + bagCount*170 + mugCount*150;
+  document.getElementById('sub-total').innerText = '$'+totalPrice;
+  const totalTaxPrice = Math.round(hatCount*(125*0.08) + bagCount*(170*0.08) + mugCount*(150*0.08));
+  document.getElementById('tax-total').innerText = '$'+totalTaxPrice;
+  const grandTotal = totalPrice + totalTaxPrice;
+  document.getElementById('grand-total').innerText = '$'+grandTotal;
+
+
+}
         
+      </script> 
 </body>
 </html>
