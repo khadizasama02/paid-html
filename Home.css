@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+    
+}
+body{
     font-family: 'Akaya Kanadaka', cursive;
 }
 .full-body{
@@ -263,9 +267,27 @@ aside {
     background-color: lightgray;
     border:1px solid lightgray;
     border-radius:3px;
+    font-size: 15px;
+    padding-bottom: 10px;
   }
   aside ul{
       padding:30px;
+      list-style-type: none;
+  }
+  .aside1 {
+    display: flex;
+     
+  }
+  .aside-2 {
+    display: flex;
+     
+  }
+  .aside-3 {
+    display: flex;
+     
+  }
+  aside img{
+      width:30px;
   }
   .article-image img{
       width:100%;
@@ -421,4 +443,8 @@ th:last-child{
     font-weight: 500;
     margin-left: 55px;
   
+}
+.footer-container{
+    max-width: 1300px;
+    margin:auto;
 }

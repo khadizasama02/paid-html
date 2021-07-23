@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
-<body>
+<body onload='document.form1.text1.focus()'>
+  <div class="navbar">
+    <div class="logo">
+      <a href="Home.html"><img src="images/logo.png" width="100px" height="50px"/></a>
+    </div>
+    <nav>
+        <ul id="menu-items">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="cart.html">Product</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="aboutMe.html">About me</a></li>
+            <li><a href="login.html">Account</a></li>
+
+        </ul>
+    </nav>
+    <img src="./images/list.png" alt="" class="menu" onclick="menuToggle()">
+</div>
     <!-- shopping cart -->
-      <div class="small-container cart-page">
+      <div class="small-container cart-page" id="full-section">
           <table>
               <tr>
                   <th>product</th>
@@ -95,13 +113,101 @@
 
           </tr>
           <tr>
-            <td><button>Checkout</button></td>
+            <td><button id="button-checkout">Checkout</button></td>
             
 
           </tr>
           </table>
           </div>
       </div> 
+      <section class="payment-class" id="payment-area">
+        <h1 class="title">Confirm Purchase</h1>
+        <div class="confirmation">
+          <div class="heading">
+            <h4>Quantity of Products</h4>
+            <h4>Subtotal</h4>
+            <h4>Tax(8%)</h4>
+            <h4>Grand Total</h4>
+          </div>
+          <div class="heading-data">
+            <h4 id="quantity">00</h4>
+            <h4 id="total-price">$000</h4>
+            <h4 id="total-tax">$000</h4>
+            <h4 id="sum-total">$000</h4>
+          </div>
+        </div>
+        
+        <div class="mail">
+          <h2>Enter Your Payment Information</h2>
+          <form onsubmit="handleSubmit(event)">
+          <ul>
+            <h4 style="margin: 10px;">Enter Your Card Option</h4>
+            <div class="image=card">
+              <input type="radio" id="card" name="payment" value=""/>
+              <img src="./images/master.png" alt="">
+              <input type="radio" id="card" name="payment" value=""/>
+              <img src="./images/visa.png" alt="">
+              <input type="radio" id="card" name="payment" value=""/>
+              <img src="./images/discover.png" alt="">
+              <input type="radio" id="card" name="payment" value=""/>
+              <img src="./images/amex.png" alt="">
+            </div>
+            <h4>Credit Card Number</h4>
+          <li><input class="field" id="card-Number" type='text' placeholder="enter card number" required/></li>
+          <h4>CVC Number</h4>
+          <li><input class="field" id="cvc-Number" type='text' placeholder="Enter cvc number" required/></li>
+          <li>&nbsp;</li>
+             <li class="submit-btn"><input type="submit" name="submit" value="Submit"/></li>
+          <li>&nbsp;</li>
+          </ul>
+          </form>
+          </div>
+          
+    </section>
+      <footer>
+        <div class="footer">
+            <div class="footer-container">
+                <div class="row-category">
+                    <div class="footer-col-1">
+                        <h3>Travellista</h3>
+                        <p>I’m a location independent blogger, digital influencer, small group tour organizer and world traveler with a serious passion for the sun, the sea and adventure.Eight years and 60-something countries later and I’m still on the road.</p>
+                    </div>
+                    <div class="footer-col-2">
+                       <h3>contact Me</h3>
+                        <p>Address:221B Baker St
+                            London, NW1 6XE
+                            UK</p>
+                            <p>email:info@travellista.com</p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Account</h3>
+                        <ul class="footer-ul">
+                            <li>My List</li>
+                            <li>My Info</li>
+                            <li>Contact</li>
+                           
+                            
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Travel</h3>
+                        <ul class="footer-ul">
+                            <li>Travel</li>
+                            <li>Why Travel</li>
+                            <li>Become a Traveler</li>
+                            <li>How Its Works</li>
+                            <li>Traveling FAQs</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <small>© 2021 travelista. All rights reserved</small>
+            </div>
+        </div>
+
+    </footer>
       <script>
 
 function handleProductChange(product, isIncrease){
@@ -134,22 +240,76 @@ function handleProductChange(product, isIncrease){
         }
 
 function calculateTotal() {
-  const hatInput=document.getElementById('hat-count');
-  const hatCount = parseInt(hatInput.value);
-  const bagInput=document.getElementById('bag-count');
-  const bagCount = parseInt(bagInput.value);
-  const mugInput=document.getElementById('mug-count');
-  const mugCount = parseInt(mugInput.value);
-  const totalPrice = hatCount*125 + bagCount*170 + mugCount*150;
+  const hatTotalCount = prodInput('hat');
+  const bagTotalCount = prodInput('bag');
+  const mugTotalCount = prodInput('mug');
+  
+  const totalPrice = hatTotalCount*125 + bagTotalCount*170 + mugTotalCount*150;
   document.getElementById('sub-total').innerText = '$'+totalPrice;
-  const totalTaxPrice = Math.round(hatCount*(125*0.08) + bagCount*(170*0.08) + mugCount*(150*0.08));
+  const totalTaxPrice = Math.round(hatTotalCount*(125*0.08) + bagTotalCount*(170*0.08) + mugTotalCount*(150*0.08));
   document.getElementById('tax-total').innerText = '$'+totalTaxPrice;
   const grandTotal = totalPrice + totalTaxPrice;
   document.getElementById('grand-total').innerText = '$'+grandTotal;
 
 
 }
+// case count
+function prodInput(product)
+        {
+            const productClassInput = document.getElementById(product+'-count');
+            const productClassCount = parseInt(productClassInput.value);
+            
+           
+            return productClassCount;
+        }
+
+// section hides
+
+document.getElementById('button-checkout').addEventListener('click',function(){
+  const mainSection = document.getElementById('full-section');
+  mainSection.style.display= "none";
+  const paymentArea = document.getElementById('payment-area');
+  paymentArea.style.display="block";
+  const hatTotalCount = prodInput('hat');
+  const bagTotalCount = prodInput('bag');
+  const mugTotalCount = prodInput('mug');
+  let totalProductCount = hatTotalCount+bagTotalCount+mugTotalCount; 
+  document.getElementById('quantity').innerText = totalProductCount;
+  const totalPrice = hatTotalCount*125 + bagTotalCount*170 + mugTotalCount*150;
+  document.getElementById('total-price').innerText = '$'+totalPrice;
+  const totalTaxPrice = Math.round(hatTotalCount*(125*0.08) + bagTotalCount*(170*0.08) + mugTotalCount*(150*0.08));
+  document.getElementById('total-tax').innerText = '$'+totalTaxPrice;
+  const grandTotal = totalPrice + totalTaxPrice;
+  document.getElementById('sum-total').innerText = '$'+grandTotal;
+})
+
+
+
+
+
+
+// js toggle
+var menuItems = document.getElementById("menu-items");
+        function menuToggle(){
+       if(menuItems.style.maxHeight == "0px")
+       {
+        menuItems.style.maxHeight = "200px"
+       }
+       else{
+        menuItems.style.maxHeight = "0px"
+       }
+        }
+
+
+
+
+
+        // payment system settings
+
         
-      </script> 
+        
+      </script>
+      <script src="index.js"></script>
+     
 </body>
 </html>

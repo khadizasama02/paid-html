@@ -5,16 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="gallery.css">
-    <link rel="stylesheet" href="lightbox.min.css">
     <link rel="stylesheet" href="home.css">
-   
-    
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="navbar font">
+    <div class="navbar">
         <div class="logo">
-            <a href="Home.html"><img src="images/logo.png" width="100px" height="50px"/></a>
+            <a href="Home.html"><img src="images/logo.png" width="100px" height="50px"/></a>  
         </div>
         <nav>
             <ul id="menu-items">
@@ -23,34 +20,25 @@
                 <li><a href="event.html">Events</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="aboutMe.html">About me</a></li>
-                <li><a href="login.html">Account</a></li>
+                <li><a href="login.html" id="username">Account</a></li>
 
             </ul>
         </nav>
         <img src="./images/list.png" alt="" class="menu" onclick="menuToggle()">
     </div>
-    <div class="main-box">
-        <h1>Image gallery</h1>
-        <div class="gallery">
-            <a href="./images/bi1.jpg" data-lightbox="mygallery" class="space"><img src="./images/si1.jpg"/></a>
-            <a href="./images/bi2.jpg" class="space" data-lightbox="mygallery"><img src="./images/si2.jpg"/></a>
-            <a href="./images/bi3.jpg" data-lightbox="mygallery"><img src="./images/si3.jpg"/></a>
-            <a href="./images/bi4.jpg" data-lightbox="mygallery"><img src="./images/si4.jpg"/></a>
-            <a href="./images/bi5.jpg" data-lightbox="mygallery"><img src="./images/si5.jpg"/></a>
-            <a href="./images/bi6.jpg" data-lightbox="mygallery"><img src="./images/si6.jpg"/></a>
-            <a href="./images/bi7.jpg" data-lightbox="mygallery"><img src="./images/si7.jpg"/></a>
-            <a href="./images/bi8.jpg" data-lightbox="mygallery"><img src="./images/si8.jpg"/></a>
-            <a href="./images/bi9.jpg" data-lightbox="mygallery"><img src="./images/si9.jpg"/></a>
-           
-           
-           
-            <a href="./images/tiger.jpg" data-lightbox="mygallery"><img src="./images/tiger s1.jpg"/></a>
-            <a href="./images/shapla.jpg" data-lightbox="mygallery"><img src="./images/shapla s1.jpg"/></a>
-        </div>
-    
+    <div>
+        <div class="login-box">
+            <label for="name-value">Name</label><br>
+            <input type="text" id="name-value" placeholder="Name" required><br>
+            <label for="email-id">Email</label><br>
+            <input type="email" id="email-id" placeholder="Email" required><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder="Password" required><br><br>
+            <input onClick="loginFunction()" type="submit" value="Login">
+    </div>
     </div>
     <footer>
-        <div class="footer font">
+        <div class="footer">
             <div class="footer-container">
                 <div class="row-category">
                     <div class="footer-col-1">
@@ -106,7 +94,6 @@
        }
         }
     </script>
-    <script src="lightbox-plus-jquery.min.js"></script>
-    
+    <script src="login.js"></script>
 </body>
 </html>

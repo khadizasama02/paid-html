@@ -1,0 +1,15 @@
+.failed{
+  text-align: center;
+  color:#079992;
+  margin-top: 150px;
+  margin-bottom:200px;
+
+
+}
+.background{
+    background:#f5f6fa;
+}
+.failed img{
+  width:60px;
+  height:60px;
+}
